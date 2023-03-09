@@ -50,8 +50,9 @@ public class CountryController {
 	}
 
 	// ----- 削除画面 -----
-	@GetMapping("/delete")
-	public String deleteCountryForm(Model model) {
+	@GetMapping("/delete/{code}")
+	public String deleteCountryForm(@PathVariable String code, Model model) {
+		model.addAttribute("cd", code);
 		// country/delete.htmlに画面遷移
 		return "country/delete";
 	}
@@ -65,5 +66,4 @@ public class CountryController {
 		// 一覧画面にリダイレクト
 		return "redirect:/country/list";
 	}
-	// ----- 追加:ここまで -----
 }
