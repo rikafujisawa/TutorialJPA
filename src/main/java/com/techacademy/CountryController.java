@@ -27,7 +27,7 @@ public class CountryController {
 	}
 
 	// ----- 詳細画面 -----
-	@GetMapping("/detail/{code}")
+	@GetMapping({"/detail" ,"/detail/{code}"})
 	public String getCountry(@PathVariable(name = "code", required = false) String code, Model model){
 		Country country = code != null ? service.getCountry(code) : new Country();
 		// Modelに登録
